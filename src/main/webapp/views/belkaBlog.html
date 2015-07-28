@@ -1,0 +1,46 @@
+<div ng-controller="BelkaBlogController">
+  <div ng-show="debug.on">
+    <h1 ng-model="controllerName">{{controllerName}}</h1>
+  </div>
+
+
+  <div ng-show="debug.on">
+    <input type="text" ng-model="feedUrl">
+    <button ng-click="fetchFeedObject(feedUrl)">fetch rss url as object</button>
+  </div>
+
+  <div ng-show="entry == null">
+    <div>Entries
+      <div ng-repeat="e in entries">
+        <div>
+          <a href="#" class="button" ng-click="showEntry(e)">{{e.title}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div ng-show="entry != null">
+    <div class="panel panel-primary">
+      <span class="pull-right">
+        <button type="button" class="btn btn-danger" ng-click="hideEntry()">
+          <span class="glyphicon glyphicon-remove"></span>
+        </button>
+      </span>
+
+      <div class="panel-heading">{{entry.title}}
+
+
+      </div>
+      <div ng-bind-html="entry.contentAsHtml"></div>
+      <button ng-click="hideEntry()">Close</button>
+    </div>
+
+
+  </div>
+
+  <div ng-show="debug.on">
+    <pre><code>{{feedObject | json }}</code></pre>
+  </div>
+
+</div>

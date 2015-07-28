@@ -1,0 +1,39 @@
+<html>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="stylesheets/custom.css">
+
+<script src="assets/libs/base64/base64.js"></script>
+<script src="assets/libs/angularjs/angular.js"></script>
+<script src="assets/libs/jquery/dist/jquery.js"></script>
+<script src="assets/libs/vkbeautify/vkbeautify.js"></script>
+
+<script src="js/app.js"></script>
+<script src="js/filters.js"></script>
+
+<body ng-app="app" ng-controller="mainCtrl">
+<h1>Example of using angular js filters, binding</h1>
+
+<div>Used directives: ng-app, ng-controller, ng-model, ng-bind, ng-init</div>
+<div>
+  <label>Expected input: a valid XML string</label>
+  <textarea ng-model="input"></textarea>
+</div>
+<div>
+  <label>Expected input: indentation step number</label>
+  <input ng-model="step" ng-init="step=2">
+</div>
+<div>
+  <label>Expected output: a prettified XML string</label>
+  <pre ng-bind="output = (input | formattedXml:step)"  ng-show="output.length > 0"></pre>
+  <div ng-show="output.length == 0" class="error">Закодированная строка не является XML документом.</div>
+</div>
+
+<div><label>Expected output: a base64Encoded XML string</label>
+  <pre ng-bind="input | base64Encoded"></pre>
+</div>
+<div><label>Expected output: a base64Decoded XML string</label>
+  <pre ng-bind="input | base64Decoded"></pre>
+</div>
+
+</body>
+</html>

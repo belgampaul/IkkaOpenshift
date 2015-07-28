@@ -1,0 +1,49 @@
+<div ng-controller="Base64DecoderViewController">
+  <button ng-show="isEncodedResVisible" type="button" class="btn btn-warning" ng-model="isEncodedResVisible" btn-checkbox
+          btn-checkbox-true="true" btn-checkbox-false="false">
+    Hide Base64 decoded result
+  </button>
+  <button ng-show="!isEncodedResVisible" type="button" class="btn btn-success" ng-model="isEncodedResVisible" btn-checkbox
+          btn-checkbox-true="true" btn-checkbox-false="false">
+    Show Base64 decoded result
+  </button>
+
+  <button ng-show="isDecodedResVisible" type="button" class="btn btn-warning" ng-model="isDecodedResVisible"
+          btn-checkbox btn-checkbox-true="true" btn-checkbox-false="false">
+    Hide Base64 encoded result
+  </button>
+  <button ng-show="!isDecodedResVisible" type="button" class="btn btn-success" ng-model="isDecodedResVisible"
+          btn-checkbox btn-checkbox-true="true" btn-checkbox-false="false">
+    Show Base64 encoded result
+  </button>
+
+
+
+  <div class="form-group">
+    <label>Input text</label>
+    <textarea ng-model="input" class="form-control"></textarea>
+  </div>
+
+  <div class="panel panel-primary" ng-show="isEncodedResVisible">
+    <span class="pull-right">
+        <button type="button" class="btn btn-danger" ng-click="isEncodedResVisible = !isEncodedResVisible">
+          <span class="glyphicon glyphicon-remove"></span>
+        </button>
+    </span>
+    <div class="panel-heading">Base64 decoded input</div>
+    <div ng-bind="input | base64Decoded"></div>
+  </div>
+
+
+  <div class="panel panel-primary" ng-show="isDecodedResVisible">
+    <span class="pull-right">
+        <button type="button" class="btn btn-danger" ng-click="isDecodedResVisible = !isDecodedResVisible">
+          <span class="glyphicon glyphicon-remove"></span>
+        </button>
+    </span>
+
+    <div class="panel-heading">Base64 encoded input</div>
+    <div ng-bind="input | base64Encoded"></div>
+  </div>
+
+</div>

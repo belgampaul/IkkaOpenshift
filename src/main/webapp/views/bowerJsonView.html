@@ -1,0 +1,7 @@
+<div ng-controller="BowerJsonViewController">
+  <h1 ng-model="controllerName">{{controllerName}}</h1>
+  <div>
+    <select ng-model="page" ng-options="page.iso4217_alpha3 for page in bowerJsonInstance"></select>
+  </div>
+  <div><span>author</span><span><pre><code>{{bowerJsonInstance | json}} </code></pre></span></span></div>
+</div>

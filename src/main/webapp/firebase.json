@@ -1,0 +1,9 @@
+{
+  "firebase": "glaring-inferno-5251",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

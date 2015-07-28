@@ -1,0 +1,39 @@
+<div ng-controller="ExchangeRatesViewController">
+  <h1 ng-model="controllerName">{{controllerName}}</h1>
+
+  <div class="panel panel-primary">Test</div>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      Panel content
+    </div>
+    <div class="panel-footer">Panel footer</div>
+  </div>
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">Exchange rates (updated at {{data.query.created | date: 'yyyy-MM-dd HH:mm'}})
+      <span>
+        <button class="btn btn-default" ng-click="isCollapsed = !isCollapsed">
+          <span ng-show="isCollapsed">Show data</span>
+          <span ng-show="!isCollapsed">Hide data</span>
+        </button>
+      </span>
+    </div>
+
+    <div><input type="text" ng-model="username" placeholder="username" ng-required="true" onlyDigits/></div>
+    <div><input type="text" ng-model="password" placeholder="password"/></div>
+    <div collapse="isCollapsed">
+      <div class="well well-lg">
+        <div>
+          <pre>{{data | json}}</pre>
+        </div>
+      </div>
+    </div>
+    <div ng-repeat="r in data.query.results.rate">
+      <div class="alert alert-info" role="alert">{{r.Name}} {{r.Rate}}</div>
+    </div>
+  </div>
+  <div class="panel panel-success">...</div>
+  <div class="panel panel-info">...</div>
+  <div class="panel panel-warning">...</div>
+  <div class="panel panel-danger">...</div>
+</div>

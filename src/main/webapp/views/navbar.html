@@ -1,0 +1,64 @@
+<div class="container">
+  <nav role="navigation" class="navbar navbar-inverse">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a href="#" class="navbar-brand">B</a>
+    </div>
+    <!-- Collection of nav links, forms, and other content for toggling -->
+    <div>
+
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+        <li><a href="#">Something</a></li>
+
+
+        <li class="dropdown">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">Pages <b class="caret"></b></a>
+          <ul role="menu" class="dropdown-menu">
+            <li ng-repeat="p in pages" role="menuitem"><a href="" ng-click="pageChosen(p.url, p.name)">{{p.name}}
+              {{p.url}}</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">Examples <b class="caret"></b></a>
+          <ul role="menu" class="dropdown-menu">
+            <li ng-repeat="p in examples" role="menuitem"><a href="" ng-click="pageChosen(p.url, p.name)">{{p.name}}
+              {{p.url}}</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">Messages <b class="caret"></b></a>
+          <ul role="menu" class="dropdown-menu">
+            <li><a href="#">Inbox</a></li>
+            <li><a href="#">Drafts</a></li>
+            <li><a href="#">Sent Items</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Trash</a></li>
+          </ul>
+        </li>
+
+
+      </ul>
+      <form role="search" class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" placeholder="Search" class="form-control">
+        </div>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Login</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li>
+          <p class="navbar-btn">
+            <a href="" ng-click="debug.on = !debug.on">
+              <span class="btn btn-danger" ng-show="debug.on"> Debug is on </span>
+              <span class="btn btn-success" ng-show="!debug.on"> Debug is off </span>
+            </a>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
