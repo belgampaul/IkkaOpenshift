@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="PostgreSQL - ikka@localhost" uuid="f9bffc95-8419-4822-9104-6a70133cd897">
+      <secret-storage>master_key</secret-storage>
+      <user-name>admin3p8v1la</user-name>
+      <schema-pattern>ikka.pg_catalog ikka.public</schema-pattern>
+      <default-schemas>ikka.pg_catalog ikka.public</default-schemas>
+    </data-source>
+  </component>
+</project>

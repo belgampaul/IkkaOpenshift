@@ -1,0 +1,39 @@
+<div ng-controller="RestApiController">
+  <h1>REST API examples</h1>
+
+  <div>
+    <!--suppress HtmlUnknownTarget -->
+    <a class="btn btn-primary" href="" ng-click="fetchObject()" role="button">Simple Get Request (Java Jax-Rs
+      Provider)</a>
+    <a class="btn btn-primary" href="" ng-click="fetchObject('sysinfo/properties')" role="button">SysInfo</a>
+  </div>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>name</th>
+      <th>value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="(key,val) in  restApiObject">
+      <td>{{key}}</td>
+      <td>{{val}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="well">
+    <pre><code>{{restApiObject | json}}</code></pre>
+  </div>
+
+  <div>
+    <h2>Connect to database</h2>
+
+  </div>
+
+  <div>
+    <h2>Fetch users</h2>
+    <a href="restapi/users/list" class="btn btn-primary">list users</a>
+  </div>
+</div>

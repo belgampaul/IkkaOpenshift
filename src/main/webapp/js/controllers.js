@@ -96,6 +96,32 @@ angular.module("app"/*, ['ngAnimate']*/)
     .controller("Base64DecoderViewController", ["$scope", function ($scope) {
     }])
 
+    .controller("DatabaseServiceViewController", ["$scope", function ($scope) {
+    }])
+
+
+
+    .controller("RestApiController", ["$scope", "$http", function ($scope, $http) {
+
+      $scope.restApiObject = {};
+      $scope.fetchObject = function (req) {
+        var rq = req  ? req : "library/book/1";
+
+        $http.get("restapi/" + rq)
+            .success(function (data, status, headers, config) {
+          // this callback will be called asynchronously
+          // when the response is available
+          console.log(data);
+              $scope.restApiObject = null;
+              $scope.restApiObject = data;
+        })
+            .error(function (data, status, headers, config) {
+              // called asynchronously if an error occurs
+              // or server returns response with an error status.
+            });
+      };
+    }])
+
 
     .controller("Base64EncoderController", ["$scope", function ($scope) {
       $scope.controllerName = "Base64EncoderController";
@@ -131,6 +157,8 @@ angular.module("app"/*, ['ngAnimate']*/)
       ];
 
       var examples = [
+        'databaseServiceView',
+        'restApiTestsView',
         'firebaseView',
         'base64DecoderView'
       ];
@@ -153,8 +181,9 @@ angular.module("app"/*, ['ngAnimate']*/)
             $scope.examples.push({name: pageName, url: 'views/' + pageName + '.html'});
           });
 
-      $scope.page = $scope.pages[$scope.pages.length - 1];
+      //$scope.page = $scope.pages[0];
       //$scope.radioModel  = $scope.page.name;
+
 
 
       $scope.pageChosen = function (url) {
@@ -171,6 +200,7 @@ angular.module("app"/*, ['ngAnimate']*/)
           }
         });
       };
+      $scope.page = $scope.examples[0];
 
     }]);
 

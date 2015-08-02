@@ -6249,6 +6249,24 @@
       </exclusions>
     </dependency>
 
+    <dependency>
+      <groupId>org.apache.xmlbeans</groupId>
+      <artifactId>xmlbeans</artifactId>
+      <version>2.6.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>9.3-1102-jdbc41</version>
+    </dependency>
+
+    <!--<dependency>-->
+      <!--<groupId>org.webjars</groupId>-->
+      <!--<artifactId>angularjs</artifactId>-->
+      <!--<version>1.4.3</version>-->
+    <!--</dependency>-->
+
   </dependencies>
 
 
