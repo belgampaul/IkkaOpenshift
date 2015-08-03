@@ -17,19 +17,19 @@ angular.module('appFilters', [])
     }])
     .filter('base64Encoded', function () {
       return function (input) {
-        return Base64.encode(input);
+        return (input != null) ? Base64.encode(input) : "";
       };
     })
     .filter('base64Decoded', function () {
       return function (input) {
-        return Base64.decode(input);
+        return (input != null) ? Base64.decode(input) : "";
       };
     })
 ;
 
-angular.module('appFilters').factory('xmlFormatter', function() {
+angular.module('appFilters').factory('xmlFormatter', function () {
   return {
-    format : function (xmlString, step) {
+    format: function (xmlString, step) {
       return vkbeautify.xml(xmlString, step)
     }
   };

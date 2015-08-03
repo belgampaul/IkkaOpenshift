@@ -1,5 +1,17 @@
 angular.module("app"/*, ['ngAnimate']*/)
 
+    .controller('ApplicationController', function ($scope,
+                                                   USER_ROLES,
+                                                   AuthService) {
+      $scope.currentUser = null;
+      $scope.userRoles = USER_ROLES;
+      $scope.isAuthorized = AuthService.isAuthorized;
+
+      $scope.setCurrentUser = function (user) {
+        $scope.currentUser = user;
+      };
+    })
+
     .controller("ExchangeRatesViewController", ["$scope", "$http", function ($scope, $http) {
       $scope.controllerName = "ExchangeRatesViewController";
       $scope.data = {};
@@ -90,8 +102,20 @@ angular.module("app"/*, ['ngAnimate']*/)
       }])
 
 
-    .controller("Base64DecoderController", ["$scope", function ($scope) {
-    }])
+    .controller('LoginController', function ($scope, $rootScope, AUTH_EVENTS, AuthService) {
+      $scope.credentials = {
+        username: '',
+        password: ''
+      };
+      $scope.login = function (credentials) {
+        AuthService.login(credentials).then(function (user) {
+          $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
+          $scope.setCurrentUser(user);
+        }, function () {
+          $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
+        });
+      };
+    })
 
     .controller("Base64DecoderViewController", ["$scope", function ($scope) {
     }])
@@ -100,21 +124,20 @@ angular.module("app"/*, ['ngAnimate']*/)
     }])
 
 
-
     .controller("RestApiController", ["$scope", "$http", function ($scope, $http) {
 
       $scope.restApiObject = {};
       $scope.fetchObject = function (req) {
-        var rq = req  ? req : "library/book/1";
+        var rq = req ? req : "library/book/1";
 
         $http.get("restapi/" + rq)
             .success(function (data, status, headers, config) {
-          // this callback will be called asynchronously
-          // when the response is available
-          console.log(data);
+              // this callback will be called asynchronously
+              // when the response is available
+              console.log(data);
               $scope.restApiObject = null;
               $scope.restApiObject = data;
-        })
+            })
             .error(function (data, status, headers, config) {
               // called asynchronously if an error occurs
               // or server returns response with an error status.
@@ -165,7 +188,7 @@ angular.module("app"/*, ['ngAnimate']*/)
 
       $scope.pages = [];
       $scope.examples = [];
-      $scope.debug = { on: false};
+      $scope.debug = {on: false};
 
       //$scope.radio = {model :  undefined};
       //$scope.radioModelButtons = ["a", "b", "c"];
@@ -183,7 +206,6 @@ angular.module("app"/*, ['ngAnimate']*/)
 
       //$scope.page = $scope.pages[0];
       //$scope.radioModel  = $scope.page.name;
-
 
 
       $scope.pageChosen = function (url) {
