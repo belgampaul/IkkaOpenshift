@@ -180,6 +180,8 @@ angular.module("app"/*, ['ngAnimate']*/)
       ];
 
       var examples = [
+        'surveys/surveys',
+        'documents/documents',
         'databaseServiceView',
         'restApiTestsView',
         'firebaseView',
@@ -224,5 +226,6 @@ angular.module("app"/*, ['ngAnimate']*/)
       };
       $scope.page = $scope.examples[0];
 
-    }]);
+    }])
+    ;
 

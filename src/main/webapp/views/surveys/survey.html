@@ -1,0 +1,8 @@
+<div>
+  <h1>Survey</h1>
+  <ol>
+    <li ng-repeat="q in [1,2,3]"><a ui-sref="surveys.survey.question({questionId: q})">Question</a>
+    </li>
+  </ol>
+  <div ui-view></div>
+</div>

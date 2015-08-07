@@ -1,0 +1,12 @@
+<div class="panel panel-primary">
+  <h1>Document</h1>
+  <div class="form-group" ng-show="$state.current.name === 'document'">
+    <div class="text-input">DocNumber {{doc.docId}}</div>
+    <ul>
+      <li ng-repeat="l in [1,2,3]"><a ui-sref="document.line({lineId : l})">Line {{l}}</a></li>
+    </ul>
+  </div>
+
+  <div ui-view></div>
+  <!--<div ng-show="debug.on"><pre>{{$state | json}}</pre></div>-->
+</div>
